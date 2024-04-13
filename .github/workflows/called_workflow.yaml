@@ -18,5 +18,5 @@ jobs:
       - id: 'env'
         name: 'Check env and load the env vars'
         run: | 
-          echo "I've been called from the repo ${{github.workspace}}"
-          echo "I'm running on the environment ${{github.events.inputs.Environment}}"
+          echo "I've been called from the repo ${{ github.event.repository.name }}"
+          echo "I'm running on the environment ${{inputs.Environment}}"
