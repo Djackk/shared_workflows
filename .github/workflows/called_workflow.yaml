@@ -1,0 +1,23 @@
+name: Called Workflow
+on:
+  workflow_call:
+    inputs:
+      Environment:
+        required: true
+        type: string
+    secrets:
+      JOB_TOKEN:
+        required: true
+
+jobs:
+  validate-env:
+    name: env-check
+    runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.Environment }}
+    steps:
+      - id: 'env'
+        name: 'Check env and load the env vars'
+        run: | 
+          echo "I've been called from the repo ${{github.workspace}}"
+          echo "I'm running on the environment ${{github.events.inputs.Environment}}"
+          echo "I can access this repos environment variables -> ${{vars.GitHub_ENV}}"
