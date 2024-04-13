@@ -20,4 +20,3 @@ jobs:
         run: | 
           echo "I've been called from the repo ${{github.workspace}}"
           echo "I'm running on the environment ${{github.events.inputs.Environment}}"
-          echo "I can access this repos environment variables -> ${{vars.GitHub_ENV}}"
