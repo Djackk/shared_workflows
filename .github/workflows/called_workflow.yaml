@@ -5,6 +5,7 @@ on:
       Environment:
         required: true
         type: string
+        default: dev
     secrets:
       JOB_TOKEN:
         required: true
@@ -20,3 +21,4 @@ jobs:
         run: | 
           echo "I've been called from the repo ${{ github.event.repository.name }}"
           echo "I'm running on the environment ${{inputs.Environment}}"
+          echo "I can access this repos environment variables -> ${{vars.GitHub_ENV}}"
